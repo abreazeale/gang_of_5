@@ -1,8 +1,172 @@
 <html>
     <head>
         <title>Gang of 5: Adam</title>
+        <style>
+          table{font-family: 'Courier New', Courier, monospace;
+                font-size: 14pt;
+                color: white;
+                background: grey;
+                border: solid;
+                border-collapse: collapse;
+                border-width: 4px 4px 4px 4px;
+                border-color: black
+               }
+             td{text-align: center;
+                width: 50px;
+                height: 50px;
+                border: solid;
+                border-width: 2px 2px 2px 2px;
+                border-color: black;
+               }
+          #eqtn{background: white;
+                height: 20px;
+                color: darkgrey;
+                text-align: left;
+                font-size: 9pt;
+                border-color: white;
+                border-width: 0px 0px 2px 0px;
+               }
+          #answ{background: white;
+                color: black;
+                text-align: right;
+                border-color: white;
+                border-width: 2px 0px 0px 0px;
+               }
+         button{border: none;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 14pt;
+               }
+          .nmbr{background: grey;
+                color: white;
+                width: 100%;
+                height: 100%;
+                border: none;
+               }
+    .nmbr:hover{background: orange;
+                color: black;
+               }
+          .oper{background: lightgrey;
+                color: black;
+                width: 100%;
+                height: 100%;
+                border: none;
+               }
+          .tall{height: 210%;}
+    .oper:hover{background: yellow;
+                color: black;
+               }
+        </style>
     </head>
     <body>
-        Adam
+        <h1>Adam's Simple Calculator</h1>
+        <table id="calc">
+            <tr>
+                <td id="eqtn" colspan="4"> </td>
+            </tr>
+            <tr>
+                <td id="answ" colspan="4">0</td>
+            </tr>
+            <tr>
+                <td><button class="nmbr" onclick="clickNumber(7)">7</button></td>
+                <td><button class="nmbr" onclick="clickNumber(8)">8</button></td>
+                <td><button class="nmbr" onclick="clickNumber(9)">9</button></td>
+                <td><button class="oper" onclick="clickOper('/')">/</button></td>
+            </tr>
+            <tr>
+                <td><button class="nmbr" onclick="clickNumber(4)">4</button></td>
+                <td><button class="nmbr" onclick="clickNumber(5)">5</button></td>
+                <td><button class="nmbr" onclick="clickNumber(6)">6</button></td>
+                <td><button class="oper" onclick="clickOper('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button class="nmbr" onclick="clickNumber(1)">1</button></td>
+                <td><button class="nmbr" onclick="clickNumber(2)">2</button></td>
+                <td><button class="nmbr" onclick="clickNumber(3)">3</button></td>
+                <td><button class="oper" onclick="clickOper('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="nmbr" onclick="clickNumber(0)">0</button></td>
+                <td><button class="oper" onclick="clickDecimal()">.</button></td>
+                <td><button class="oper" onclick="clickOper('=')">=</button></td>
+                <td><button class="oper" onclick="clickOper('+')">+</button></td>
+            </tr>
+            <tr>
+                <td colspan="4"><button class="oper" onclick="clickOper('R')">Reset</button></td>
+            </tr>                                    
+        </table>
     </body>
+    <script>
+        var dsply = '0';
+        var eqntn = ' ';
+        var nmbr1 = 0;
+        var nmbr2 = 0;
+        var answr = 0;
+        var oper1 = ' ';
+        var stepnmbr = 1;
+        var hasdcml = 0;
+        function clickNumber(nbrval){
+            if(stepnmbr == 1)
+                {nmbr1 = (nmbr1 * 10) + (nbrval * (1 ^ hasdcml));
+                 if(hasdcml < 0){hasdcml = hasdcml - 1;};
+                 dsply = nmbr1;
+                 
+                }
+            else{nmbr2 = (nmbr2 * 10) + (nbrval * (1 ^ hasdcml));
+                 dsply = nmbr2;
+                 if(hasdcml < 0){hasdcml = hasdcml - 1;};
+                };
+                document.getElementById("answ").innerHTML=dsply.toString();
+        };
+        function clickDecimal(){
+            if(hasdcml == 0){
+                hasdcml = -1;
+                dsply = dsply + '.';
+                document.getElementById("answ").innerHTML=dsply.toString();
+            }
+        };
+        function clickOper(operval){
+            if(operval == "R")
+                {dsply = '0';
+                 nmbr1 = 0;
+                 nmbr2 = 0;
+                 answr = 0;
+                 oper1 = ' ';
+                 stepnmbr = 1;
+                 eqntn = ' ';
+                 hasdcml = 'N';
+                 document.getElementById("answ").innerHTML='0';
+                 document.getElementById("eqtn").innerHTML=' ';
+                };
+            if(operval == "=" && stepnmbr >= 2)
+                {if(oper1 == "+"){answr = nmbr1 + nmbr2;};
+                 if(oper1 == "-"){answr = nmbr1 - nmbr2;};
+                 if(oper1 == "*"){answr = nmbr1 * nmbr2;};
+                 if(oper1 == "/"){answr = nmbr1 / nmbr2;};
+                 dsply = answr;
+                 eqntn = nmbr1.toString() + ' ' + oper1 + ' ' + nmbr2.toString() + ' =';
+                 nmbr1 = answr;
+                 stepnmbr = stepnmbr + 1;
+                 document.getElementById("answ").innerHTML=dsply.toString();
+                 document.getElementById("eqtn").innerHTML=eqntn;
+                };
+            if(stepnmbr >= 2 && operval != "=" && operval != "R")
+                {stepnmbr = stepnmbr + 1;
+                 eqntn = nmbr1.toString() + ' ' + oper1 + ' ' + nmbr2.toString() + ' =';
+                 nmbr1 = answr;
+                 nmbr2 = 0;
+                 oper1 = operval;
+                 dsply = oper1;
+                 document.getElementById("answ").innerHTML=dsply;
+                 document.getElementById("eqtn").innerHTML=eqntn;
+                };
+            if(stepnmbr == 1 && operval != "=" && operval != "R")
+                {stepnmbr = stepnmbr + 1;
+                 oper1 = operval;
+                 dsply = oper1;
+                 eqntn = nmbr1.toString() + ' ' + oper1
+                 document.getElementById("answ").innerHTML=dsply;
+                 document.getElementById("eqtn").innerHTML=eqntn;
+                };
+            };
+    </script>
 </html>
