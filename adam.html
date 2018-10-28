@@ -9,7 +9,7 @@
                 border: solid;
                 border-collapse: collapse;
                 border-width: 4px 4px 4px 4px;
-                border-color: black
+                border-color: black;
                }
              td{text-align: center;
                 width: 50px;
@@ -18,19 +18,16 @@
                 border-width: 2px 2px 2px 2px;
                 border-color: black;
                }
-          #eqtn{background: white;
+          #eqtn{background: black;
                 height: 20px;
-                color: darkgrey;
+                color: greenyellow;
                 text-align: left;
-                font-size: 9pt;
-                border-color: white;
-                border-width: 0px 0px 2px 0px;
+                font-size: 10pt;
                }
-          #answ{background: white;
-                color: black;
+          #answ{background: black;
+                color: greenyellow;
+                font-size: 20pt;
                 text-align: right;
-                border-color: white;
-                border-width: 2px 0px 0px 0px;
                }
          button{border: none;
                 font-family: 'Courier New', Courier, monospace;
@@ -103,24 +100,30 @@
         var answr = 0;
         var oper1 = ' ';
         var stepnmbr = 1;
-        var hasdcml = 0;
+        var hasdcml = 1;
+        var tenspwr = 10;
+        var decspwr = 1;
         function clickNumber(nbrval){
             if(stepnmbr == 1)
-                {nmbr1 = (nmbr1 * 10) + (nbrval * (1 ^ hasdcml));
-                 if(hasdcml < 0){hasdcml = hasdcml - 1;};
+                {string = 'clickNumber('+nbrval.toString()+');stepnmbr==1;hsdcml:'+hasdcml.toString();
+                 console.log(string);
+                 nmbr1 = (nmbr1 * tenspwr) + (nbrval * (1 / decspwr));
+                 if(decspwr > 1){decspwr = decspwr * 10;};
                  dsply = nmbr1;
                  
                 }
-            else{nmbr2 = (nmbr2 * 10) + (nbrval * (1 ^ hasdcml));
+            else{nmbr2 = (nmbr2 * tenspwr) + (nbrval * (1 / decspwr));
                  dsply = nmbr2;
-                 if(hasdcml < 0){hasdcml = hasdcml - 1;};
+                 if(decspwr > 1){decspwr = decspwr * 10;};
                 };
                 document.getElementById("answ").innerHTML=dsply.toString();
         };
         function clickDecimal(){
-            if(hasdcml == 0){
-                hasdcml = -1;
-                dsply = dsply + '.';
+            if(decspwr == 1){
+                decspwr = 10;
+                tenspwr = 1;
+                if(stepnmbr == 1){dsply = nmbr1 + '.';}
+                else{dsply = nmbr2 + '.'};
                 document.getElementById("answ").innerHTML=dsply.toString();
             }
         };
@@ -133,7 +136,8 @@
                  oper1 = ' ';
                  stepnmbr = 1;
                  eqntn = ' ';
-                 hasdcml = 'N';
+                 tenspwr = 10;
+                 decspwr = 1;
                  document.getElementById("answ").innerHTML='0';
                  document.getElementById("eqtn").innerHTML=' ';
                 };
@@ -167,6 +171,8 @@
                  document.getElementById("answ").innerHTML=dsply;
                  document.getElementById("eqtn").innerHTML=eqntn;
                 };
+            tenspwr = 10;
+            decspwr = 1;            
             };
     </script>
 </html>
