@@ -1,0 +1,836 @@
+<html>
+
+<head>
+		<title>Login boostrap</title>
+		<link rel="shortcut icon" href="https://cdn0.iconfinder.com/data/icons/ringtone-music-instruments/512/letter-m-latin-key-512.png">
+		<body>
+						<nav class="navbar navbar bg-dark  bg-info">
+								<p></p>
+			 
+
+						<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+					 <a class="navbar-brand nav-link current" href="Bootstrap.mustafa.html">Home</a>
+					
+								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+								<div class="collapse navbar-collapse" id="navbarNav">
+										<ul class="navbar-nav">
+										 
+											<li class="nav-item">
+												<a class="nav-link" href="contact.html">Contact</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="history.html">History</a>
+											</li>
+											<li class="nav-item dropdown">
+														<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+														 Account Type
+														</a>
+														<div class="dropdown-menu">
+															<a class="dropdown-item" href="Business.html">Business</a>
+															<a class="dropdown-item" href="Personal.html">Personal</a>
+														 
+														</div>
+														
+											
+										</ul>
+									</div>
+								</nav>
+							</nav>
+
+  
+<head>
+  <title>Bootstrap </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+
+
+
+    <aside id="contact_form_maker_widget-4" class="sidebar-area contact_form_maker_widget"><h3 class="widget_title">Contact Us</h3>    <script type="text/javascript">
+      function contactformOnload1() {
+        if (navigator.userAgent.toLowerCase().indexOf('msie') != -1) {
+          if (parseInt(navigator.userAgent.toLowerCase().split('msie')[1]) === 8) {
+            jQuery("#contactform1").find(jQuery("input[type='radio']")).click(function() {jQuery("input[type='radio']+label").removeClass('if-ie-div-label'); jQuery("input[type='radio']:checked+label").addClass('if-ie-div-label')});	
+            jQuery("#contactform1").find(jQuery("input[type='radio']:checked+label")).addClass('if-ie-div-label');
+            jQuery("#contactform1").find(jQuery("input[type='checkbox']")).click(function() {jQuery("input[type='checkbox']+label").removeClass('if-ie-div-label'); jQuery("input[type='checkbox']:checked+label").addClass('if-ie-div-label')});	
+            jQuery("#contactform1").find(jQuery("input[type='checkbox']:checked+label")).addClass('if-ie-div-label');
+          }
+        }
+        jQuery("div[type='type_text'] input, div[type='type_number'] input, div[type='type_phone'] input, div[type='type_name'] input, div[type='type_submitter_mail'] input, div[type='type_textarea'] textarea").focus(function() {delete_value(this)}).blur(function() {return_value(this)});
+        jQuery("div[type='type_number'] input, div[type='type_phone'] input").keypress(function(evt) {return check_isnum(evt)});
+
+        jQuery('.wdform-element-section').each(function() {
+          if (!jQuery(this).parent()[0].style.width) {
+            if (parseInt(jQuery(this).width()) != 0) {
+              if (jQuery(this).css('display') == "table-cell") {
+                if (jQuery(this).parent().attr('type') != "type_captcha") {
+                  jQuery(this).parent().css('width', parseInt(jQuery(this).width()) + parseInt(jQuery(this).parent().find(jQuery(".wdform-label-section"))[0].style.width)+15);
+                }
+                else {
+                  jQuery(this).parent().css('width', (parseInt(jQuery(this).parent().find(jQuery(".captcha_input"))[0].style.width)*2+50) + parseInt(jQuery(this).parent().find(jQuery(".wdform-label-section"))[0].style.width)+15);
+                }
+              }
+            }
+          }
+          if(parseInt(jQuery(this)[0].style.width.replace('px', '')) < parseInt(jQuery(this).css('min-width').replace('px', '')))
+            jQuery(this).css('min-width', parseInt(jQuery(this)[0].style.width.replace('px', ''))-10);
+        });	
+        
+        jQuery('.wdform-label').each(function() {
+          if(parseInt(jQuery(this).height()) >= 2*parseInt(jQuery(this).css('line-height').replace('px', '')))
+          {
+            jQuery(this).parent().css('max-width',jQuery(this).parent().width());
+            jQuery(this).parent().css('width','');
+          }
+        });
+        if (jQuery(".cfm_style").parent().prop("tagName") == "P") {
+          jQuery(".cfm_style").parent().css({padding: 0, margin: 0});
+        }
+              }
+
+      jQuery(window).load(function () {
+        contactformOnload1();
+      });
+
+      form_view_count1 = 0;
+      jQuery(document).ready(function () {
+        if (document.getElementById(1+'contactform_view1')) {
+          wdform_page = document.getElementById(1+'contactform_view1');
+          remove_whitespace(wdform_page);
+          n = wdform_page.childNodes.length - 2;
+          for (z = 0; z <= n; z++) {
+            if (wdform_page.childNodes[z]) {
+              if (wdform_page.childNodes[z].getAttribute("disabled")) {
+                var wdform_section_break = wdform_page.childNodes[z];
+                move = wdform_section_break.nextSibling;
+                to = wdform_section_break.previousSibling;
+                l = move.childNodes.length;
+                for (k = 0; k < l; k++) {
+                  if (to.childNodes[k]) {
+                    while (move.childNodes[k].firstChild) {
+                      to.childNodes[k].appendChild(move.childNodes[k].firstChild);
+                    }
+                  }
+                  else if (typeof move.childNodes[k] != "undefined") {
+                    to.appendChild(move.childNodes[k]);
+                  }
+                }
+                wdform_section_break.parentNode.removeChild(wdform_section_break.nextSibling);
+                wdform_section_break.parentNode.removeChild(wdform_section_break);
+              }
+            }
+          }
+        }
+      });
+      function check_required1(but_type) {
+        if (but_type == 'reset') {
+          window.location = "/index.php/contact-us/";
+          return;
+        }
+        x = jQuery("#contactform1");
+        
+                if (x.find(jQuery("div[wdid=4]")).length != 0) {
+                  if (jQuery("#wdform_4_element1").val()=="someone@example.com" || jQuery("#wdform_4_element1").val()=="") {
+                    alert("E-mail: field is required.");
+                    jQuery("#wdform_4_element1").addClass( "form-error" );
+                    old_bg=x.find(jQuery("div[wdid=4]")).css("background-color");
+                    x.find(jQuery("div[wdid=4]")).effect( "shake", {}, 500 ).css("background-color","#FF8F8B").animate({backgroundColor: old_bg}, {duration: 500, queue: false });
+                    jQuery("#wdform_4_element1").focus();
+                    jQuery("#wdform_4_element1").change(function() { if( jQuery(this).val()!="" ) jQuery(this).removeClass("form-error"); else jQuery(this).addClass("form-error");});
+                    return false;
+                  }
+                }
+              if (x.find(jQuery("div[wdid=4]")).length != 0) {
+                if (jQuery("#wdform_4_element1").val() != "") {
+                  if (cfm_check_email("wdform_4_element1")) {
+                    alert("This is not a valid email address.");
+                    old_bg=x.find(jQuery("div[wdid=4]")).css("background-color");
+                    x.find(jQuery("div[wdid=4]")).effect( "shake", {}, 500 ).css("background-color","#FF8F8B").animate({backgroundColor: old_bg}, {duration: 500, queue: false });
+                    jQuery("#wdform_4_element1").focus();
+                    return false;
+                  }
+                }
+              }
+                if (x.find(jQuery("div[wdid=6]")).length != 0) {
+                  if (jQuery("#wdform_6_element1").val()=="" || jQuery("#wdform_6_element1").val()=="") {
+                    alert("Phone number: field is required.");
+                    jQuery("#wdform_6_element1").addClass( "form-error" );
+                    old_bg=x.find(jQuery("div[wdid=6]")).css("background-color");
+                    x.find(jQuery("div[wdid=6]")).effect( "shake", {}, 500 ).css("background-color","#FF8F8B").animate({backgroundColor: old_bg}, {duration: 500, queue: false });
+                    jQuery("#wdform_6_element1").focus();
+                    jQuery("#wdform_6_element1").change(function() { if( jQuery(this).val()!="" ) jQuery(this).removeClass("form-error"); else jQuery(this).addClass("form-error");});
+                    return false;
+                  }
+                }
+                if (x.find(jQuery("div[wdid=23]")).length != 0) {
+                  if (jQuery("#wdform_23_element1").val()=="" || jQuery("#wdform_23_element1").val()=="") {
+                    alert("Message: field is required.");
+                    jQuery("#wdform_23_element1").addClass( "form-error" );
+                    old_bg=x.find(jQuery("div[wdid=23]")).css("background-color");
+                    x.find(jQuery("div[wdid=23]")).effect( "shake", {}, 500 ).css("background-color","#FF8F8B").animate({backgroundColor: old_bg}, {duration: 500, queue: false });
+                    jQuery("#wdform_23_element1").focus();
+                    jQuery("#wdform_23_element1").change(function() { if( jQuery(this).val()!="" ) jQuery(this).removeClass("form-error"); else jQuery(this).addClass("form-error");});
+                    return false;
+                  }
+                };
+        var a = [];
+        if (typeof a[1] !== 'undefined') {
+          if (a[1] == 1) {
+            return;
+          }
+        }
+        ;
+        a[1] = 1;
+        document.getElementById("contactform"+1).submit();
+      }
+    </script>
+    <style class="cfm_style">.contactform1 .wdform-page-and-images .other_input
+{
+max-width: none;
+}.contactform1 
+button, .contactform1
+input, .contactform1
+select, .contactform1
+textarea
+{
+font-size:14px;
+}.contactform1 
+.warning, .contactform1
+.error
+{
+background-color: #F0EFEF;
+border: 1px solid #000000;
+border-radius: 5px;
+color: #000000;
+padding: 5px;
+}.contactform1 
+.warning *, .contactform1
+.error *
+{
+margin:0;
+}.contactform1 
+.recaptcha_input_area input
+{
+height:initial !important;
+}.contactform1 
+input[type="radio"]
+{
+border:none !important;
+outline:none !important;
+}.contactform1 
+input[type="checkbox"]
+{
+border:none !important;
+outline:none !important;
+}.contactform1 
+a.ui-spinner-button
+{
+border-radius:0px !important;
+background: none!important;
+}.contactform1 
+
+a.ui-slider-handle {
+width: 13px;
+height: 13px;
+top: -4px;
+border: 0px;
+border-radius: 13px;
+background: #FAFAFA;
+border: 3px solid #B1B1B1;
+outline: none;
+}.contactform1 
+
+.ui-slider {
+	height: 6px;
+	background: #F5F5F5 !important;
+	margin: 7px 0px;
+}.contactform1 
+.wdform_grading input {
+	width: 100px;
+}.contactform1 
+.wdform-matrix-cell input[type="text"] {
+	width: 100px;
+}.contactform1 
+.wdform-matrix-cell select {
+	width: 60px;
+}.contactform1 
+.wdform_section .wdform_column:last-child {
+	padding-right: 0px !important;
+}.contactform1 
+.wdform_preload {
+	display: none;
+}.contactform1 
+.wdform_grading {
+	padding: 3px 0px;
+}.contactform1 
+.wdform-matrix-table {
+	display: table;
+	border-spacing: 0px;
+}.contactform1 
+.wdform-matrix-column {
+	text-align: left;
+	display: table-cell;
+}.contactform1 
+.wdform-matrix-cell {
+	text-align: center;
+	display: table-cell;
+	padding: 6px 10px;
+}.contactform1 
+.wdform-matrix-head>div {
+	display: table-cell;
+	text-align: center;
+}.contactform1 
+.wdform-matrix-head {
+	display: table-row;
+}.contactform1 
+.wdform-matrix-row0 {
+	background: #DFDFDF;
+	display: table-row;
+}.contactform1 
+.wdform-matrix-row1 {
+	background: #E9E9E9;
+	display: table-row;
+}.contactform1 
+.selected-text {
+	text-align: left;
+	color: #000;
+}.contactform1 
+.wdform-quantity {
+	width: 30px;
+	margin: 2px 0px;
+}.contactform1 
+.wdform_scale_rating label {
+	vertical-align: middle;
+}.contactform1 
+.ui-corner-all {
+	border-radius: 0px;
+}.contactform1 
+.ui-widget-content {
+	border: 0px;
+	background: transparent;
+}.contactform1 
+
+
+.ui-slider-range {
+	background: #8A8A8A !important;
+}.contactform1 
+.wdform_map {
+	border: 6px solid #fff;
+}.contactform1 
+.wdform-page-and-images {
+	width: 100%;
+	border: 0px solid #000 !important;
+padding-left:10px;
+}.contactform1 
+.paypal-property {
+	display: inline-block;
+	margin-right: 15px;
+	vertical-align: middle;
+}.contactform1 
+.sel-wrap {
+	display: inline-block;
+	vertical-align: middle;
+	width:100%;
+}.contactform1 
+
+.sel-imul {
+	display: none;
+}.contactform1 
+.sel-imul .sel-selected {
+	cursor: pointer;
+	position: relative;
+	display: inline-block;
+	border-radius: 0px;
+	padding: 0px 0px 0px 2px;
+	font-size: 13px;
+	height: 22px;
+	line-height: 22px;
+	overflow: hidden;
+	background: #F8F8F8;
+	border: 0px solid #D3D3D3;
+	background-position: right 2px center;
+	width: 100%;
+}.contactform1 
+.sel-imul.act .sel-selected {
+	background: #fff;
+}.contactform1 
+.sel-selected .sel-arraw {
+	height: 23px;
+	width: 30px;
+	background: url(http://msolution.co.in/wp-content/plugins/contact-form-builder/images/09/01.png) 50% 50% no-repeat;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding: 0px;
+}.contactform1 
+.sel-imul:hover .sel-selected .sel-arraw {
+  }.contactform1 
+.sel-imul.act .sel-selected .sel-arraw {
+  }.contactform1 
+.sel-imul .sel-options {
+	background: #fff;
+	border: 1px solid #dbdbdb;
+	border-top: none;
+	position: absolute;
+	width: inherit;
+	display: none;
+	z-index: 10;
+	max-height: 200px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}.contactform1 
+.sel-options .sel-option {
+	padding: 3px 4px;
+	font-size: 13px;
+	border: 1px solid #fff;
+	border-right: none;
+	border-left: none;
+	text-align: left;
+}.contactform1 
+.sel-options .sel-option:hover {
+	border-color: #dbdbdb;
+	cursor: pointer;
+}.contactform1 
+.sel-options .sel-option.sel-ed {
+	background: #dbdbdb;
+	border-color: #dbdbdb;
+}.contactform1 
+input[type=text]{
+	margin: 0px;
+}.contactform1 
+input[type=password]{
+	margin: 0px;
+}.contactform1 
+input[type=url]{
+	margin: 0px;
+}.contactform1 
+input[type=email]{
+	margin: 0px;
+}.contactform1 
+input.text{
+	margin: 0px;
+}.contactform1 
+input.title{
+	margin: 0px;
+}.contactform1 
+textarea{
+	margin: 0px;
+}.contactform1 
+select {
+	margin: 0px;
+}.contactform1 
+.form-error {
+	border-color: red !important;
+}.contactform1 
+.form-error:focus {
+	border-color: red !important;
+}.contactform1 
+.wdform-field {
+	display: table-cell;
+	padding: 5px 0px;
+}.contactform1 
+.wdform-label-section{
+	text-align: left;
+	display: table-cell;
+}.contactform1 
+.wdform-element-section {
+	text-align: left;
+	display: table-cell;
+	min-width: 140px;
+}.contactform1 
+.file-upload input {
+	position: absolute;
+	visibility: hidden;
+}.contactform1 
+.file-upload-status {
+	margin-left: 10px;
+	max-width: 200px;
+	font-weight: bold;
+	font-size: 16px;
+	color: #888;
+	position: absolute;
+	border-radius: 0px;
+	height: 23px;
+	padding-left: 5px;
+	padding-right: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	}.contactform1 
+.file-picker {
+	width: 41px;
+	height: 32px;
+	background: url(http://msolution.co.in/wp-content/plugins/contact-form-builder/images/10/02/upload.png) no-repeat;
+	display: inline-block;
+}.contactform1 
+.next-page div.wdform-page-button {
+color: #FFF;
+cursor: pointer;
+display: inline-block;
+height: 38px;
+line-height: 35px;
+background:url(http://msolution.co.in/wp-content/plugins/contact-form-builder/images/10/next.png) no-repeat right #000;
+padding: 0px 36px 0 20px;
+vertical-align: middle;
+font-size: 18px;
+border-top-right-radius: 7px;
+border-bottom-right-radius: 7px;
+}.contactform1 
+.previous-page div.wdform-page-button {
+color: #A2A2A2;
+cursor: pointer;
+display: inline-block;
+height: 37px;
+line-height: 35px;
+background:url(http://msolution.co.in/wp-content/plugins/contact-form-builder/images/09/previous.png) no-repeat left #F1F1F1;
+padding: 0 20px 0 36px;
+vertical-align: middle;
+font-size: 18px;
+border-top-left-radius: 7px;
+border-bottom-left-radius: 7px;
+}.contactform1 
+.button-submit {
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 35px;
+	background: #000;
+	padding: 0px 20px;
+	vertical-align: middle;
+	font-size: 18px;
+	min-width: 80px;
+	min-height: 35px;
+	font-family: Segoe UI;
+		border: 1px solid transparent;
+	margin: 5px;
+}.contactform1 
+.button-reset {
+	color: #787878;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 35px;
+	background: #F0EFEF;
+	padding: 0px 20px;
+	vertical-align: middle;
+	font-size: 18px;
+	min-width: 80px;
+	min-height: 35px;
+	font-family: Segoe UI;
+	float: right;
+	border: 1px solid transparent;
+	margin: 5px;
+}.contactform1 
+.wdform_page {
+	background: transparent;
+	border-radius: 0px;
+	font-family: Segoe UI;
+}.contactform1 
+.wdform_column {
+	padding-right: 50px !important;
+	float: left;
+	border-spacing: 2px;
+	border-collapse: separate !important;
+}.contactform1 
+.wdform_section_break2 {
+	color: #000;
+	display: inline-block;
+	text-align: left;
+	font-size: 23px;
+margin: 16px 10px 40px 0px;
+}.contactform1 
+
+.wdform_section_break {
+	color: #000;
+	font-size: 23px;
+margin: 16px 0px;
+}.contactform1 
+
+.wdform_section {
+	display: inline-block;
+}.contactform1 
+select {
+	padding: 2px;
+	height: 26px;
+	border: 1px solid #B7B7B7;
+background: #F8F8F8;
+}.contactform1 
+input[type="text"]{
+	border-radius: 0px;
+	height: 22px;
+	padding:0 3px !important;
+	background: #F8F8F8;
+border:1px solid #B7B7B7;
+}.contactform1 
+input[type="password"]{
+	border-radius: 0px;
+	height: 22px;
+	padding:0 3px !important;
+	background: #F8F8F8;
+border:1px solid #B7B7B7;
+}.contactform1 
+textarea {
+	border-radius: 0px;
+	height: 22px;
+	padding:0 3px !important;
+	background: #F8F8F8;
+border:1px solid #B7B7B7;
+}.contactform1 
+input[type="text"]:focus{
+	outline: none;
+}.contactform1 
+input[type="password"]:focus{
+	outline: none;
+}.contactform1 
+textarea:focus{
+	outline: none;
+}.contactform1 
+select {
+	outline: none;
+}.contactform1 
+.input_deactive {
+	color: #999999;
+	font-style: italic;
+}.contactform1 
+.input_active {
+	color: #000000;
+	font-style: normal;
+}.contactform1 
+.am_pm_select {
+	width: 30px;
+	vertical-align: middle;
+}.contactform1 
+
+
+.wdform-calendar-button, .contactform1
+.wdform-calendar-button:hover {
+  display:inline-block;
+	background: transparent url(http://msolution.co.in/wp-content/plugins/contact-form-builder/images/03/date.png) no-repeat !important;
+	border: 0px;
+	color: transparent;
+	width: 22px;
+	height: 22px;
+	position: relative;
+	left: -22px;
+	vertical-align: top;
+	outline: none;
+}.contactform1 
+
+
+.forlabs {
+	float: right;
+	margin-right: 20px;
+}.contactform1 
+
+.if-ie-div-label {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)" !important;
+	filter: alpha(opacity=100) !important;
+	opacity: 1 !important;
+}.contactform1 
+.wdform-ch-rad-label {
+	display: inline;
+	margin: -4px 5px 5px 5px;
+	float: left;
+	color: #000;
+	cursor: pointer
+}.contactform1 
+textarea {
+	padding-top: 5px;
+}.contactform1 
+.wdform-date {
+  display:inline-block;
+	width: 105px
+}.contactform1 
+.wdform_footer {
+	margin-top: 15px;
+}.contactform1 
+.page-numbers {
+	vertical-align: middle;
+}.contactform1 
+.time_box {
+	text-align: right;
+	width: 30px;
+	vertical-align: middle
+}.contactform1 
+.mini_label {
+	font-size: 10px;
+	font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	color: #8A8A8A;
+}.contactform1 
+.wdform-label {
+	border: none;
+	color: #000;
+	vertical-align: top;
+	line-height: 17px;
+}.contactform1 
+.wdform_colon {
+	color: #000
+}.contactform1 
+.wdform_separator {
+	font-style: bold;
+	vertical-align: middle;
+	color: #000;
+}.contactform1 
+.wdform_line {
+	color: #000
+}.contactform1 
+.wdform-required {
+	border: none;
+	color: red;
+	vertical-align: top;
+}.contactform1 
+.captcha_img {
+	border-width: 0px;
+	margin: 0px;
+	padding: 0px;
+	cursor: pointer;
+	border-radius: 0px;
+}.contactform1 
+.captcha_refresh {
+	width: 30px;
+	height: 30px;
+	border-width: 0px;
+	margin: 0px;
+	padding: 0px;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: url(http://msolution.co.in/wp-content/plugins/contact-form-builder/images/refresh_black.png);
+}.contactform1 
+.captcha_input {
+	height: 20px;
+	border-width: 1px;
+	margin: 0px;
+	padding: 0px;
+	vertical-align: middle;
+}.contactform1 
+.file_upload {
+	border: 0px solid white;
+	border-radius: 0px;
+	margin: 0px;
+	padding: 0px;
+	color: black;
+	background-color: white;
+}.contactform1 
+.page_deactive {
+color: #000;
+background-color: #FFF;
+cursor: pointer;
+display: inline-block;
+height: 29px;
+text-align: center;
+vertical-align: bottom;
+padding: 5px 25px 0px 25px;
+font-size: 16px;
+font-weight:bold;
+}.contactform1 
+.page_active {
+color: #FFF;
+cursor: pointer;
+background-color: #000;
+display: inline-block;
+vertical-align: bottom;
+height: 29px;
+text-align: center;
+font-size: 20px;
+padding: 5px 25px 0px 25px;
+line-height: 26px;
+font-weight:bold;
+}.contactform1 
+.page_percentage_active {
+padding: 0px;
+margin: 0px;
+border-spacing: 0px;
+height: 16px;
+line-height: 16px;
+font-size: 15px;
+float: left;
+text-align: right !important;
+z-index: 1;
+position: relative;
+vertical-align: middle;
+background: #000;
+color: #fff;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
+}.contactform1 
+.page_percentage_deactive {
+height: 16px;
+line-height: 16px;
+background-color: #F1F1F1;
+text-align: left !important;
+margin-bottom: 1px;
+border-radius: 5px;
+}.contactform1 
+.page_numbers {
+	font-size: 14px;
+	color: #000;
+}.contactform1 
+.phone_area_code {
+	width: 50px;
+}.contactform1 
+.phone_number {
+	width: 100px;
+}.contactform1 
+button {
+	cursor: pointer;
+}.contactform1 
+.other_input {
+	border-radius: 0px;
+	border-width: 1px;
+	height: 16px;
+	font-size: 12px;
+	padding: 1px;
+	margin: 1px;
+	margin-left: 25px;
+	z-index: 100;
+	position: absolute;
+}.contactform1 
+.wdform_page_navigation {
+	text-align: right !important;
+}.contactform1 
+
+.wdform_percentage_text {
+margin: 3px 5px 3px 9px;
+color: #FFF;
+font-size: 12px;
+}.contactform1 
+.wdform_percentage_title {
+	color: #6E6E6E;
+	font-style: italic;
+	margin: 0px 0px 0px 40px;
+	display: inline-block;
+	line-height: 27px;
+	height: 27px;
+	vertical-align: middle;
+}.contactform1 
+.wdform_button button {
+	background: #4D792C;
+	cursor: pointer;
+	font-size: 17px;
+	border-radius: 0px;
+	min-width: 80px;
+	min-height: 31px;
+	color: #fff;
+	border: 2px solid #68943B;
+	margin: 5px;
+	box-shadow: 0px 0px 2px #c9c9c9;
+	font-family: Segoe UI;
+}.contactform1 </style><form name="contactform1" action="/index.php/contact-us/" method="post" id="contactform1" class="contactform1" enctype="multipart/form-data" onsubmit="check_required('submit', '1'); return false;">
+      <input type="hidden" id="counter1" value="34" name="counter1">
+      <input type="hidden" id="Itemid1" value="" name="Itemid1"><div class="wdform-page-and-images" style="display:table; border-top:0px solid black;"><div id="1contactform_view1" class="wdform_page" page_title="Untitled page" next_title="Next" next_type="text" next_class="wdform-page-button" next_checkable="false" previous_title="Previous" previous_type="text" previous_class="wdform-page-button" previous_checkable="false"><div class="wdform_section"><div class="wdform_column ui-sortable"><div wdid="32" class="wdform_row ui-sortable-handle" style="opacity: 0.4;" disabled="yes"></div><div wdid="33" class="wdform_row ui-sortable-handle" style="opacity: 0.4;" disabled="yes"></div><div wdid="2" class="wdform_row ui-sortable-handle" style="opacity: 1;"><div type="type_text" class="wdform-field" style="width:230px"><div class="wdform-label-section" style="float: left; width: 100px;"><span class="wdform-label">Your Name:</span></div><div class="wdform-element-section" style="width: 120px; min-width: 110px;"><input type="text" class="input_deactive" id="wdform_2_element1" name="wdform_2_element1" value="" title="" style="width: 100%;"></div></div></div><div wdid="4" class="wdform_row ui-sortable-handle" style="opacity: 1;"><div type="type_submitter_mail" class="wdform-field" style="width:220px"><div class="wdform-label-section" style="float: left;; width: 100px;"><span class="wdform-label">E-mail:</span><span class="wdform-required">*</span></div><div class="wdform-element-section " style="width: 120px; min-width: 110px;"><input type="text" class="input_deactive" id="wdform_4_element1" name="wdform_4_element1" value="someone@example.com" title="someone@example.com" style="width: 100%;"></div></div></div><div wdid="22" class="wdform_row ui-sortable-handle" style="opacity: 1;"><div type="type_text" class="wdform-field" style="width:230px"><div class="wdform-label-section" style="float: left; width: 100px;"><span class="wdform-label">Subject:</span></div><div class="wdform-element-section" style="width: 120px; min-width: 110px;"><input type="text" class="input_deactive" id="wdform_22_element1" name="wdform_22_element1" value="" title="" style="width: 100%;"></div></div></div><div wdid="6" class="wdform_row ui-sortable-handle" style="opacity: 1;"><div type="type_text" class="wdform-field" style="width:230px"><div class="wdform-label-section" style="float: left; width: 100px;"><span class="wdform-label">Phone number:</span><span class="wdform-required">*</span></div><div class="wdform-element-section" style="width: 120px; min-width: 110px;"><input type="text" class="input_deactive" id="wdform_6_element1" name="wdform_6_element1" value="" title="" style="width: 100%;"></div></div></div><div wdid="15" class="wdform_row ui-sortable-handle" style="opacity: 1;"><div type="type_text" class="wdform-field" style="width:230px"><div class="wdform-label-section" style="float: left; width: 100px;"><span class="wdform-label">Company:</span></div><div class="wdform-element-section" style="width: 120px; min-width: 110px;"><input type="text" class="input_deactive" id="wdform_15_element1" name="wdform_15_element1" value="" title="" style="width: 100%;"></div></div></div><div wdid="23" class="wdform_row ui-sortable-handle" style="opacity: 1;"><div type="type_textarea" class="wdform-field" style="width:235px"><div class="wdform-label-section" style="; width: 120px;"><span class="wdform-label">Message:</span><span class="wdform-required">*</span></div><div class="wdform-element-section " style="display:block; width: 235px"><textarea class="input_deactive" id="wdform_23_element1" name="wdform_23_element1" title="" style="width: 100%; height: 150px;"></textarea></div></div></div><div wdid="28" class="wdform_row ui-sortable-handle" style="opacity: 0.4;" disabled="yes"></div><div wdid="30" class="wdform_row ui-sortable-handle"><div type="type_submit_reset" class="wdform-field"><div class="wdform-label-section" style="display: table-cell;"></div><div class="wdform-element-section " style="display: table-cell;"><button type="button" class="button-submit" onclick="check_required1(&quot;submit&quot;, &quot;1&quot;);">Submit</button><button type="button" class="button-reset" onclick="check_required1(&quot;reset&quot;);">Reset</button></div></div></div></div><div class="wdform_column ui-sortable"><div wdid="5" class="wdform_row ui-sortable-handle" style="opacity: 0.4;" disabled="yes"></div><div wdid="9" class="wdform_row ui-sortable-handle" style="opacity: 0.4;" disabled="yes"></div><div wdid="27" class="wdform_row ui-sortable-handle" style="opacity: 0.4;" disabled="yes"></div><div wdid="31" class="wdform_row ui-sortable-handle" disabled="yes" style="opacity: 0.4;"></div><div wdid="29" class="wdform_row ui-sortable-handle" style="opacity: 0.4;" disabled="yes"></div><div wdid="26" class="wdform_row ui-sortable-handle" disabled="yes" style="opacity: 0.4;"></div><div wdid="16" class="wdform_row ui-sortable-handle" style="opacity: 0.4;" disabled="yes"></div><div wdid="25" class="wdform_row ui-sortable-handle" disabled="yes" style="opacity: 0.4;"></div><div wdid="8" class="wdform_row ui-sortable-handle" disabled="yes" style="opacity: 0.4;"></div><div wdid="3" class="wdform_row ui-sortable-handle" disabled="yes" style="opacity: 0.4;"></div><div wdid="24" class="wdform_row ui-sortable-handle" style="opacity: 0.4;" disabled="yes"></div><div wdid="7" class="wdform_row ui-sortable-handle" style="opacity: 0.4;" disabled="yes"></div></div><div class="wdform_column ui-sortable"></div><div class="wdform_column ui-sortable"></div><div class="wdform_column ui-sortable"></div></div><div valign="top" class="wdform_footer" style="width: 100%;"><div style="width: 100%;"><div style="width: 100%; display: table;"><div style="display: table-row-group;"><div id="1contactpage_nav1" style="display: table-row;"></div></div></div></div></div></div></div><div class="wdform_preload"></div></form></aside>
+  
+  
+
+
+
+</html>
+
+
+                    
+                
