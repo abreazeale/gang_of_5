@@ -1,102 +1,158 @@
-<html>
+<html lang="en">
 
 <head>
-    <title>Coffe of Boston Bootstrap4</title>
-
+    <title>Coffee Of Boston</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-
-
 </head>
+
 <style>
-    ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 17px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #111;
-}
-
-.active {
-    background-color: #4CAF50;
-}
-.search-control > input,
-.search-control > button {
-    background-color: #e4f0f5;
+    body{background-color: rgba(147, 165, 42, 0.301);
+                font-family: 'Times New Roman', Times, serif;
+                margin: 0 10%;}
+    footer {
+   
+    padding-left: .5rem;
+    margin-left: .5rem;
+    float: middle;
+    box-shadow: inset  0 5px  #29627e;
+    font-style: italic;
     color: #29627e;
-    font-size: 1.2rem;
 }
 
-.dropdown-content {
-    display: none;
-    position: fixed;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;}
-li.dropdown {
-    display: inline-block;
+footer 
+p {
+    margin: .5rem;
 }
-.dropdown-content a {
-    color: grey;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-       </style>
+
+
+</style>
 
 <body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <a class="navbar-brand" href="#" class="current">Coffee of Boston</a>
 
-    <body>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" class="current" href="CoffeeofBostonDeniz.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="signin.html">Sign in</a>
+                    </li>
 
-        <ul>
-            <li><a class="active" href="#home">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">News</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="https://www.nytimes.com/">The USA</a>
+                            <a class="dropdown-item" href="https://www.bbc.com/news/world/europe">Europe</a>
+                            <a class="dropdown-item" href="https://www.bbc.com/news/world/middle_east">Middle East</a>
+                        </div>
+                    </li>
 
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#about">About</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">News</a>
-                <div class="dropdown-content">
-                    <a href="#">The USA</a>
-                    <a href="#">Europe</a>
-                    <a href="#">Middle East</a>
+                </ul>
+            </div>
+        </nav>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="http://crustandcream.com/wp-content/uploads/2018/07/694940094001_5761164092001_5761152856001-vs-1200x480.jpg"
+                        alt="First slide">
                 </div>
-            </li>
-            <nav style="float:right" class="navbar navbar-expand-sm bg-dark navbar-dark">
-                <form class="form-inline" action="/action_page.php">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-success" type="submit">Search</button>
-                </form>
-            </nav>
-            <br>
-        </ul>
-    </body>
-    </head>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="http://bemexico.mx/wp-content/uploads/2016/08/unusualcoffees-2-1200x480.png"
+                        alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://popular.reviews/files/2018/09/Turkish-Coffee-Pots-Picture-1200x480.jpg"
+                        alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="jumbotron text-center bg-info">
+            <h1><em>Coffee of Boston</em></h1>
+            <p>““What do you want?"</p>
+            <p>"Just coffee. Black - like my soul.” <em>Cassandra Clare</em></p>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Branch of Milano</h3>
+                    <p>“Coffee first. Schemes later.” </p>
+                    <P><em> ― Leanna Renee Hieber</em></P>
+
+
+                    <button type="button" class="btn btn-light">
+                        <a href="https://www.google.com/maps/place/San+Marco,+20121+Milano,+Milano+ili,+%C4%B0talya/@45.4749534,9.1858471,17z/data=!3m1!4b1!4m8!1m2!2m1!1smilano+caffee!3m4!1s0x4786c6b542ca3287:0xbf5a0b66f861dfa8!8m2!3d45.4753423!4d9.1880074"
+                            onclick="openLink()">Click to see location</a></button>
+
+                </div>
+                <div class="col-sm-4">
+                    <h3>Branch of Istanbul</h3>
+                    <p>"Coffee should be as black as hell, strong as death and as sweet as love"</p>
+                    <p><em>Turkish proverb</em></p>
+                    <button type="button" class="btn btn-light">
+                        <a href="https://www.google.com/maps/place/Taksim+Meydan%C4%B1,+G%C3%BCm%C3%BC%C5%9Fsuyu+Mahallesi,+34437+Beyo%C4%9Flu%2F%C4%B0stanbul,+T%C3%BCrkiye/@41.0347819,28.9826643,17.5z/data=!4m5!3m4!1s0x14cab7650656bd63:0x8ca058b28c20b6c3!8m2!3d41.0370023!4d28.9850917"
+                            onclick="openLink()">Click to see location</a></button>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Branch of Sao paolo</h3>
+                    <p>“No matter what historians claimed, BC really stood for "Before Coffee.” </p>
+                    <p><em>Cherise Sinclair</em></p>
+                    <button type="button" class="btn btn-light">
+                        <a href="https://www.google.com/maps/place/S%C3%A3o+Paulo,+Brezilya/@-23.536222,-46.6298903,15.31z/data=!4m5!3m4!1s0x94ce448183a461d1:0x9ba94b08ff335bae!8m2!3d-23.5505199!4d-46.6333094"
+                            onclick="openLink()">Click to see location</a></button>
+                </div>
+            </div>
+        </div>
+        <footer class="page-footer font-small pt-6">
+
+    
+                <div class="container">
+                
+                <div class="footer-copyright text-center py-3">
+                  <a>Organic coffee beans come from Brazil.</a>
+                </div>
+               
+            
+              </footer>
+              <div><h6></h6>
+              <p></p>
+            <P></P></div>
+              
+
+
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+</body>
 
 </html>
