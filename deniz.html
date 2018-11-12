@@ -11,7 +11,7 @@
 </head>
 
 <style>
-    body{background-color: rgba(147, 165, 42, 0.301);
+    body{background-color:whitesmoke;
                 font-family: 'Times New Roman', Times, serif;
                 margin: 0 10%;}
     footer {
@@ -27,6 +27,18 @@
 footer 
 p {
     margin: .5rem;
+}
+ form {margin: 0 5% ;}
+
+ .container figure img {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.container figure:hover img {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
 }
 
 
@@ -44,7 +56,7 @@ p {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" class="current" href="deniz.html">Home</a>
+                        <a class="nav-link" class="current" href="CoffeeofBostonDeniz.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -94,7 +106,7 @@ p {
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <div class="jumbotron text-center bg-info">
+        <div class="header text-center bg-info">
             <h1><em>Coffee of Boston</em></h1>
             <p>““What do you want?"</p>
             <p>"Just coffee. Black - like my soul.” <em>Cassandra Clare</em></p>
@@ -144,15 +156,72 @@ p {
               </footer>
               <div><h6></h6>
               <p></p>
-            <P></P></div>
-              
-
+            <P></P>
+        </div>            
 
     </div>
+
+    
+
+    
     <script src="/js/jquery.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 
 </body>
+
+<div class="container">
+        <div class="row">
+          <div class="col-sm">
+                <figure><img src="http://www.aboutmilan.com/Milan-images/Excursions/pavia.jpg" /></figure>
+          </div>
+          <div class="col-sm">
+                <figure><img src="https://q-xx.bstatic.com/xdata/images/hotel/max300/150381017.jpg?k=74800fe692cdfc8811d71dcd6d863e950f7fdae10d3ade28fd628d54149f4120&o=" /></figure>
+          </div>
+          <div class="col-sm">
+                <figure><img src="https://anderson.leankanban.com/wp-content/uploads/2017/07/iStock-496585403-300x200.jpg" /></figure>
+          </div>
+        </div>
+      </div>
+
+<form>
+    <div class="form-row align-items-center">
+      <div class="col-sm-3 my-1">
+        <label class="sr-only" for="inlineFormInputName">Name</label>
+        <input type="text" class="form-control" id="inlineFormInputName" value="Username" required>
+      </div>
+      <div class="col-sm-3 my-1">
+        <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+          </div>
+          <input type="text" class="form-control" id="inlineFormInputGroupUsername" value="E-mail" required>
+        </div>
+      </div>
+      <div class="col-auto my-1">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+          <label class="form-check-label" for="autoSizingCheck2">
+            Remember me
+          </label>
+        </div>
+      </div>
+      <div class="col-auto my-1">
+        <button type="submit" class="btn btn-default">Log in</button>
+      </div>
+    </div>
+    <div>
+        <h6></h6>
+        <p> </p>    
+  </div> 
+ 
+  
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </form>
+
 
 </html>
