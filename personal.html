@@ -151,10 +151,321 @@
 	</section>
 	<!--Section: Contact v.2-->
 
-
-
+	<html>
+		<head>
+		<meta charset="utf-8">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			<link rel="stylesheet" href="style.css">
+		<title>D3.JS Bar Chart</title>
+		</head>
+		
+		<body>
+		  <div id="line"></div>
+		   <button type="submit" id="loadBar" class="cclose btn btn-info center-block">Press to Generate New Data and Redraw Chart</button>
+		<script>
+		$('.cclose').click(removeSvg);
+		$('#loadBar').click(lineChart);
+		function lineChart() {
+			var width = $('#line').width();
+			var height = 450;
+			var padding = 20;
+			var margin = {
+				left: 75,
+				top: 10,
+				right: 50,
+				bottom: 75
+			};
+			var w = width - margin.left - margin.right;
+			var h = height - margin.top - margin.bottom;
+		
+			var data = [
+		
+				{
+					"date": "01/01/2013",
+					"quantity": 261631
+				}, {
+					"date": "02/01/2013",
+					"quantity": 206101
+				}, {
+					"date": "03/01/2013",
+					"quantity": 216817
+				}, {
+					"date": "04/01/2013",
+					"quantity": 234663
+				}, {
+					"date": "05/01/2013",
+					"quantity": 241406
+				}, {
+					"date": "06/01/2013",
+					"quantity": 234749
+				}, {
+					"date": "07/01/2013",
+					"quantity": 263196
+				}, {
+					"date": "08/01/2013",
+					"quantity": 240153
+				}, {
+					"date": "09/01/2013",
+					"quantity": 229580
+				}, {
+					"date": "10/01/2013",
+					"quantity": 242422
+				}, {
+					"date": "11/01/2013",
+					"quantity": 212742
+				}, {
+					"date": "12/01/2013",
+					"quantity": 230311
+				}, {
+					"date": "01/01/2014",
+					"quantity": 256978
+				}, {
+					"date": "02/01/2014",
+					"quantity": 213020
+				}, {
+					"date": "03/01/2014",
+					"quantity": 224035
+				}, {
+					"date": "04/01/2014",
+					"quantity": 238970
+				}, {
+					"date": "05/01/2014",
+					"quantity": 212984
+				}, {
+					"date": "06/01/2014",
+					"quantity": 213931
+				}, {
+					"date": "07/01/2014",
+					"quantity": 238738
+				}, {
+					"date": "08/01/2014",
+					"quantity": 215817
+				}, {
+					"date": "09/01/2014",
+					"quantity": 226035
+				}, {
+					"date": "10/01/2014",
+					"quantity": 224102
+				}, {
+					"date": "11/01/2014",
+					"quantity": 190351
+				}, {
+					"date": "12/01/2014",
+					"quantity": 245977
+				}, {
+					"date": "01/01/2015",
+					"quantity": 222776
+				}, {
+					"date": "02/01/2015",
+					"quantity": 192052
+				}, {
+					"date": "03/01/2015",
+					"quantity": 226375
+				}, {
+					"date": "04/01/2015",
+					"quantity": 235934
+				}, {
+					"date": "05/01/2015",
+					"quantity": 201878
+				}
+			];
+			
+			for (var i=0; i< data.length; i++) {
+				data[i].quantity = Math.random()*300+50;
+			}
+			
+			var parseDate = d3.time.format("%m/%d/%Y").parse;
+		
+			data.forEach(function(d) {
+				d.date = parseDate(d.date);
+				d.quantity = +d.quantity;
+			});
+		
+			var x = d3.time.scale()
+			x.domain(d3.extent(data, function(d) {
+					return d.date;
+				}))
+				.range([0, w], .3);
+		
+			var y = d3.scale.linear()
+			y.domain(d3.extent(data, function(d) {
+					return d.quantity;
+				}))
+				.range([h, 0], .3);
+		
+			var xAxis = d3.svg.axis()
+				.scale(x)
+				.orient("bottom");
+		
+			var yAxis = d3.svg.axis()
+				.scale(y)
+				.orient("left");
+		
+			var line = d3.svg.line()
+				.x(function(d) {
+					return x(d.date);
+				})
+				.y(function(d) {
+					return y(d.quantity);
+				});
+		
+			var svg = d3.select('#line')
+				.append('svg')
+				.attr('width', w + margin.left + margin.right)
+				.attr('height', h + margin.top + margin.bottom)
+				.append('g')
+				.attr('transform', 'translate(-900,0)');
+		
+			var xGuide = svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + (h + 5) + ")")
+				//.attr('transform', 'rotate(90)')
+				.call(xAxis)
+				.selectAll("text")
+				.attr("y", 0)
+				.attr("x", 9)
+				.attr("dy", ".35em")
+				.attr("transform", "rotate(90)")
+				//.attr('opacity', 0)
+				.style("text-anchor", "start");
+		
+			var yGuide = svg.append("g")
+				.attr("class", "y axis")
+				.call(yAxis)
+				.append("text")
+				.attr("transform", "rotate(-90)")
+				.attr("y", 6)
+				.attr("dy", ".71em")
+				.style("text-anchor", "end");
+		
+			var animateLine = svg.append("path")
+				.datum(data)
+				.attr("class", "line")
+				.attr("d", line)
+				.attr('stroke', 'black')
+				.attr('stroke-width', 2)
+				.attr('fill', 'none');
+		
+			svg.transition()
+				.delay(800)
+				.duration(2200)
+				.ease('elastic')
+				//.attr('opacity', 1)
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		};
+		//Remove SVG
+		function removeSvg() {
+			$('svg').remove();
+		}
+		lineChart();
+		</script>
+		</body>
+		</html>
 </html>
 
 
-                    
+        <html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>MustafaProject</title>
+	<style>
+		img {
+			height: 100px;
+			float: left;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+		crossorigin="anonymous"></script>
+
+
+
+<body>
+
+   
+	<button onclick="Get()">Get</button>
+
+
+	<div id="images"></div>
+	<table id="table"></table>
+
+	<script>
+			//keyToHeadingArray is a map of object key to column header
+		 function DisplayJSONobjectArrayAsTable(arrayOfObjects, elementID, keyToHeadingArray) {
+				let innerHTML = "";
+				let keys = [];
+				if (arrayOfObjects.length > 0) {
+					//write head
+					innerHTML += "<thead><tr>";
+					keys = Object.keys(arrayOfObjects[0]);
+					for (key = 0; key < keys.length; key++) {
+						let columnHeading =  keys[key];
+						try{
+							if(keyToHeadingArray){
+								columnHeading= keyToHeadingArray[columnHeading];
+							}
+						}
+						catch(err){
+							console.log(err);
+						}
+						 innerHTML += "<th>" + columnHeading + "</th>";
+								
+						
+					}
+					innerHTML += "</tr></thead>";
+					//write body
+					innerHTML += "<tbody>";
+					for (i = 0; i < arrayOfObjects.length; i++) {
+						let currentObject = arrayOfObjects[i];
+						innerHTML += "<tr>";
+						for (j = 0; j < keys.length; j++) {
+							let currentValue = currentObject[keys[j]];
+							innerHTML += "<td>" + currentValue + "</td>";
+						}
+						innerHTML += "</tr>";
+						// innerHTML += "<li>"+ arrayOfstring[i] + "</li>";
+					}
+					innerHTML += "</tbody>";
+				}
+				document.getElementById(elementID).innerHTML = innerHTML;
+			}
+		
+		function Get(){
+			 $.getJSON("http://127.0.0.1:8080/listUsers", function(data, status, xhr){
+				  //tableHeadings.push({})
+				let tableHeadings = {
+			   
+					"name": "User Name",
+					"password" : "Password",
+					"JobTitle": "JobId",
+					"Surname": "Name"
+				};
+				// let tableHeadings=[];
+				// tableHeadings["name"] = "User Name";
+				//  tableHeadings["password"] = "Password";
+				//  tableHeadings["profession"] = "Profession";
+				//  tableHeadings["JobTitle"] = "JOBTITLE";
+				
+				
+				 //sometimes yhou need to conver an object as a set of keys to an array of objects
+				 let objectKeys = Object.keys(data);
+				 let dataArray = [];
+				 for( i =0; i < objectKeys.length; i++){
+					 dataArray.push(data[objectKeys[i]]);
+				 }
+				 DisplayJSONobjectArrayAsTable(dataArray,"table", tableHeadings);
+				let pretyJSON = JSON.stringify(data, null, 2);
+				$('#images').html("<pre>" +pretyJSON +"</pre>") ;
+			});
+		   
+		}
+	  </script>
+
+</body>
+
+</html>       
+
                 
