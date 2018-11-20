@@ -1,0 +1,20 @@
+{
+    "user1" : {
+      "Store name": "Milano",
+      "Sell of Coffee amount": "90.000 Cup of Coffee",
+      "Manager of Store": " Tizianno ferro",
+      "Rate of manager": 4.6
+    },
+    "user2" : {
+      "Store name": "Istanbul",
+      "Sell of Coffee amount": "120.000 Cup of Coffee",
+      "Manager of Store": "Erin Toprak",
+      "Rate of manager": 4.5
+    },
+    "user3" : {
+      "Store name": "Sao Paolo",
+      "Sell of Coffee amount": "105.000 Cup of Coffee",
+      "Manager of Store": "Sergio Bardem",
+      "Rate of manager": 4.8
+    }
+ }
