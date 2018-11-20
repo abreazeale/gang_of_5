@@ -1,0 +1,20 @@
+{
+    "Business1" : {
+       "name" : "Mustafa",
+       "password" : "Ilikeprogramming",
+       "Job Title" : "StoreManager",
+       "id": 1
+    },
+    "PERSONEL2" : {
+       "name" : "Cevik",
+       "password" : "hey46121",
+       "Job Title" : "SoftwareEngineer",
+       "id": 2
+    },
+    "PERSONEL3" : {
+       "name" : "Orcun",
+       "password" : "LAAL4OSSSD",
+       "Job Title" : "IT Manager",
+       "id": 3
+    }
+ }
