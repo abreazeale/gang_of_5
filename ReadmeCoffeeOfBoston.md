@@ -16,8 +16,7 @@ My webpage consists of Home, About, Sign in, and News tabs and all of these tabs
     
   Navigation bar has container,navbar-toggler,navbar-brand, nav-item, collapse, dropdown. you do not need to click the News tab for dropdown features because dropdown feature works automatically.
    I added the slide in homepage with Carousel feature, and it automatically works.
-   I put container, row and column features to show other branches. These columns have click button to show the location of Branches via google maps. 
-   I added hover effects on pictures. Also homepage has footer and form.
+   I put container, row and column features to show other branches. These columns have click button to show the location of Branches via google maps. I added hover effects on pictures. I made a table which shows types of coffee and, which style we should cook. Also homepage has footer and form.
    The last feature is ajax feature which has server.js, launch.json, and user.json servers.
    You can call success information of all stores via get button.
    
