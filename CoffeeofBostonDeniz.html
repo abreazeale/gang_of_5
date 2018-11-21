@@ -16,9 +16,11 @@
 </head>
 
 <style>
-    body{background-color:whitesmoke;
+    body{background-color:beige;
                 font-family: 'Times New Roman', Times, serif;
-                margin: 0 10%;}
+                margin: 0 10%;
+                
+                }
     footer {
    
     padding-left: .5rem;
@@ -28,13 +30,11 @@
     font-style: italic;
     color: #29627e;
 }
-
 footer 
 p {
     margin: .5rem;
 }
  form {margin: 0 5% ;}
-
  .container figure img {
 	-webkit-filter: grayscale(100%);
 	filter: grayscale(100%);
@@ -45,8 +45,6 @@ p {
 	-webkit-filter: grayscale(0);
 	filter: grayscale(0);
 }
-
-
 </style>
 
 <body>
@@ -69,6 +67,7 @@ p {
                     <li class="nav-item">
                         <a class="nav-link" href="signin.html">Sign in</a>
                     </li>
+                    
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">News</a>
@@ -228,6 +227,38 @@ p {
     
 </form>
 
+<table class="table table-dark">
+        <strong>Types of Coffee and Degrees</strong>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Regular roast</th>
+        <th scope="col">Medium roast</th>
+        <th scope="col">Dark roast</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Minas Gerais</th>
+        <td>XXX</td>
+        <td>XX</td>
+        <td>X</td>
+      </tr>
+      <tr>
+        <th scope="row">Sao Paulo</th>
+        <td>XX</td>
+        <td>XXX</td>
+        <td>X</td>
+      </tr>
+      <tr>
+        <th scope="row">Bahia</th>
+        <td>X</td>
+        <td>XX</td>
+        <td>XXX</td>
+      </tr>
+    </tbody>
+  </table>
+
 
 <body>
 
@@ -274,12 +305,9 @@ p {
             }
             document.getElementById(elementID).innerHTML = innerHTML;
         }
-
     function testNodeGet() {
         $.getJSON("https://abreazeale.github.io/gang_of_5/users.json", function (data, status, xhr) {
-
             let tableHeadings = {
-
                 "Store name": "  Branch___",
                 "Sell of Coffee amount": "__Amount____   ",
                 "Manager of Store": "_____Name of Manager____",
@@ -295,21 +323,9 @@ p {
             let pretyJSON = JSON.stringify(data, null, 2);
             $('#images').html("<pre>" + pretyJSON + "</pre>");
         });
-
-
     }
     
-    
-
-
 </script>
 </body>
 
-
-
-
 </html>
-
-
-
-
