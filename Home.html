@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
   <title>Hand Made Pottery</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +9,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -35,6 +38,11 @@
           </ul>
         </div>
       </nav>
+      <div class=row>
+    
+          <p><input id="inp" type="button" class="btn btn-info" value="Go your cart" onclick="location.href='gocart.html';" /></p>
+        
+        </div>
     </nav>
   <p></p>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -63,7 +71,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-                    
+     
 
 </body>
 <head>
@@ -77,14 +85,23 @@
   </head>
   <body>
   
-  <div class="jumbotron text-center">
-    <h1>Hand Made Pottery</h1>
-    <p>“Earth, water, air and fire so simple, but so complex.” —Unknown</p> 
-  </div>
+  <div class="main"></div>
     
+          <h1 class="main-heading">
+            <span class="main-heading-primary">Hand Made Pottery</span>
+            <span class="main-heading-secondary">“Earth, water, air and fire so simple, but so complex.” —Unknown</span>
+          </h1>
+        </div>
+    
+    
+  </div>
+  
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
+          <p></p> 
+          <p></p>
+          <p></p>
         <h3>WHO WE ARE?</h3>
               <p>Click to see and follow our studio artist:
                 <p><input id="inp" type="button" class="btn btn-outline-danger" value="Click to see subscribe" onclick="location.href='https://www.artsy.net/artists';" /></p>
@@ -92,12 +109,18 @@
             
       </div>
       <div class="col-sm-4">
+          <p></p> 
+          <p></p>
+          <p></p>
         <h3>EVENTS</h3>
         <p>You can follow events from this link:</p>
         <p><input id="inp" type="button" class="btn btn-outline-warning" value="Click to subscribe" onclick="location.href='https://www.eventbrite.com/o/pottery-mill-10716787037';" /></p>
         
       </div>
       <div class="col-sm-4">
+        <p></p> 
+  <p></p>
+  <p></p>
         <h3>NEWS</h3>        
         <p>Keep you on date and click to subscribe:</p>
         <p><input id="inp" type="button" class="btn btn-outline-info" value="Click to subscribe" onclick="location.href='https://ceramicartsnetwork.org/subscription-offers/ceramics-monthly/';" /></p>
@@ -105,8 +128,199 @@
       </div>
     </div>
   </div>
-  
   </body>
+  <body>
+  <button  class="btn btn-outline-primary center"onclick="Get()">Get Comments</button>
+  <div id="images"></div>
+  <table id="table"></table>
+ <script>
+  function DisplayJSONobjectArrayAsTable(arrayOfObjects, elementID, keyToHeadingArray) {
+    let innerHTML = "";
+    let keys = [];
+    if (arrayOfObjects.length > 0) {
+        
+        innerHTML += "<thead><tr>";
+        keys = Object.keys(arrayOfObjects[0]);
+        for (key = 0; key < keys.length; key++) {
+            let columnHeading =  keys[key];
+            try{
+                if(keyToHeadingArray){
+                    columnHeading= keyToHeadingArray[columnHeading];
+                }
+            }
+            catch(err){
+                console.log(err);
+            }
+             innerHTML += "<th>" + columnHeading + "</th>";
+                    
+            
+        }
+        innerHTML += "</tr></thead>";
+        
+        innerHTML += "<tbody>";
+        for (i = 0; i < arrayOfObjects.length; i++) {
+            let currentObject = arrayOfObjects[i];
+            innerHTML += "<tr>";
+            for (j = 0; j < keys.length; j++) {
+                let currentValue = currentObject[keys[j]];
+                innerHTML += "<td>" + currentValue + "</td>";
+            }
+            innerHTML += "</tr>";
+            
+        }
+        innerHTML += "</tbody>";
+    }
+    document.getElementById(elementID).innerHTML = innerHTML;
+}
+
+function Get(){
+ $.getJSON("https://abreazeale.github.io/gang_of_5/users.json", function(data, status, xhr){
+     
+    let tableHeadings = {
+   
+        "name": "User Name",
+        "surname" : "User Surname",
+        "comment": "Comment",
+        "id": "ID"
+    };
+    
+    
+    
+     
+     let objectKeys = Object.keys(data);
+     let dataArray = [];
+     for( i =0; i < objectKeys.length; i++){
+         dataArray.push(data[objectKeys[i]]);
+     }
+     DisplayJSONobjectArrayAsTable(dataArray,"table", tableHeadings);
+    let pretyJSON = JSON.stringify(data, null, 2);
+    $('#images').html("<pre>" +pretyJSON +"</pre>") ;
+});
+
+}
+function getDefaultAjaxSettings() {
+            let ajaxSettings = {};
+            ajaxSettings.async = true;
+           
+            ajaxSettings.cache = false;
+            ajaxSettings.complete = function (xhr, status) {
+                console.log(status);
+            }
+            
+            ajaxSettings.contentType = 'application/x-www-form-urlencoded; charset=UTF-8';
+           
+            ajaxSettings.crossDomain = true;
+ 
+            ajaxSettings.datatype = "json";
+            ajaxSettings.error = function (xhr, status, error) {
+                console.log(status + " :" + error)
+            };
+            ajaxSettings.global = true;  
+        
+            ajaxSettings.method = "GET";
+           
+            ajaxSettings.success = function (data, status, xhr) {
+                console.log(status);
+                let prettyText = JSON.stringify(data, null, 2);
+                console.log(prettyText);
+                let responseHeaders = xhr.getAllResponseHeaders();
+               
+                let responseText = xhr.responseText;
+                let responseCode = xhr.status;
+                let statusText = xhr.statusText;
+            }
+           
+            ajaxSettings.timeout = 5000; 
+            ajaxSettings.traditional = false; 
+           
+            return ajaxSettings;
+        }
+        function test() {
+            
+            let callSettings = getDefaultAjaxSettings();
+            callSettings.url = "https://api.usaspending.gov/api/v2/financial_balances/agencies/?funding_agency_id=775&fiscal_year=2017";
+            callSettings.url = "http://vus-glems-02:21212/commits/v1/approvers/me";
+            
+            callSettings.url = "http://ems.amat.com:21212/commits/v1/approvers/me";
+         
+            callSettings.xhrFields = { withCredentials: true };
+            $.ajax(callSettings);
+         
+        }
+        (function () {
+          
+        })();
+    
+
+</script>
+
+  </body>
+  <style>
+    
+  .main {
+  position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-heading {
+  color: #777;
+  text-transform: uppercase;
+}
+
+.main-heading-primary {
+  display: block;
+  font-size: 4.0rem;
+  font-weight: 400;
+  text-align: center;
+  
+  animation: moveInLeft 1s ease-out;
+}
+
+.main-heading-secondary {
+  font-family: sans-serif;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+ 
+  color: hotpink;
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  
+  80% {
+    transform: translateX(10px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  
+  80% {
+    transform: translateX(-10px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+  </style>
 
 <footer class="page-footer font-small pt-4">
 
