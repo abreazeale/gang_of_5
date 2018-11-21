@@ -46,7 +46,7 @@ $(document).ready(function(){
           el.parent().parent().remove(); 
           if($(".product").length == 0) {
             if(check) {
-              $("#cart").html("<h1>The shop does not function, yet!</h1><p>If you liked my shopping cart, please take a second and heart this Pen on <a href='https://codepen.io/ziga-miklic/pen/xhpob'>CodePen</a>. Thank you!</p>");
+              $("#cart").html("<h1>The shop does not function, yet!</h1><p></a>. Thank you!</p>");
             } else {
               $("#cart").html("<h1>No products!</h1>");
             }
