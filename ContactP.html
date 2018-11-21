@@ -35,6 +35,11 @@
           </ul>
         </div>
       </nav>
+      <div class=row>
+    
+          <p><input id="inp" type="button" class="btn btn-info" value="Go your cart" onclick="location.href='gocart.html';" /></p>
+        
+        </div>
     </nav>
     <p>
             <head>
@@ -137,6 +142,70 @@
                     
                     </body>
     </p>
+    <h4>Your location is: <span class="city"></span></h4>
+<div id="container"></div>
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src=plan.js></script>
+<style>
+body {
+  background-image: url(https://subtlepatterns.com/patterns/low_contrast_linen_@2X.png);
+  background-size: 256px;
+  background-color: #252525;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+h4 {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  color: rgba(255,255,255, 0.75);
+  text-align: center;
+  
+}
+.country:hover{
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+.text{
+  font-size: 10px;
+  text-transform:capitalize;
+}
+#container {
+  margin: 0;
+  border: 1px solid #3a3f4f;
+  border-radius: 2px;
+  height:100%;
+  overflow:hidden;
+  background: #575e70;
+}
+.hidden { 
+  display: none; 
+}
+div.tooltip {
+  color: #222; 
+  background: #fff; 
+  padding: .5em; 
+  text-shadow: #f5f5f5 0 1px 0;
+  border-radius: 2px; 
+  box-shadow: 0px 0px 2px 0px #a6a6a6; 
+  opacity: 0.9; 
+  position: absolute;
+}
+.graticule {
+  fill: none;
+  stroke: #8f8f8f;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+.equator {
+  stroke: #ccc;
+  stroke-width: 1px;
+}
+
+</style>
     </body>
     <footer class="page-footer font-small pt-4">
 
