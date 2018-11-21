@@ -1,3 +1,5 @@
+
+
 var check = false;
 
 function changeVal(el) {
@@ -5,10 +7,11 @@ function changeVal(el) {
   var price = parseFloat(el.parent().children(".price").html());
   var eq = Math.round(price * qt * 100) / 100;
   
-  el.parent().children(".full-price").html( "$" + eq  );
+  el.parent().children(".full-price").html( eq + "€" );
   
   changeTotal();            
 }
+
 
 function changeTotal() {
   
@@ -19,7 +22,7 @@ function changeTotal() {
   });
   
   price = Math.round(price * 100) / 100;
-  var tax = Math.round(price * 0.08 * 100) / 100
+  var tax = Math.round(price * 0.05 * 100) / 100
   var shipping = parseFloat($(".shipping span").html());
   var fullPrice = Math.round((price + tax + shipping) *100) / 100;
   
@@ -43,7 +46,7 @@ $(document).ready(function(){
           el.parent().parent().remove(); 
           if($(".product").length == 0) {
             if(check) {
-              $("#cart").html("<h1>The shop does not function, yet!</h1> <p> Thank you!</p>");
+              $("#cart").html("<h1>The shop does not function, yet!</h1><p>If you liked my shopping cart, please take a second and heart this Pen on <a href='https://codepen.io/ziga-miklic/pen/xhpob'>CodePen</a>. Thank you!</p>");
             } else {
               $("#cart").html("<h1>No products!</h1>");
             }
